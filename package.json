@@ -1,0 +1,18 @@
+{
+  "name": "ast-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "esbuild src/index.ts --watch --outdir=dist",
+    "build": "esbuild src/index.ts --bundle --outdir=dist",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.15.11",
+    "vitest": "^0.24.3"
+  }
+}
