@@ -1,0 +1,43 @@
+// Vitest Snapshot v1
+
+exports[`testTokenizerFunction > example 1`] = `
+{
+  "body": [
+    {
+      "declarations": [
+        {
+          "end": 21,
+          "id": {
+            "end": 5,
+            "name": "a",
+            "start": 4,
+            "type": "Identifier",
+          },
+          "init": {
+            "body": {
+              "body": [],
+              "end": 21,
+              "start": 19,
+              "type": "BlockStatement",
+            },
+            "end": 21,
+            "id": null,
+            "params": [],
+            "start": 8,
+            "type": "FunctionExpression",
+          },
+          "start": 4,
+          "type": "VariableDeclarator",
+        },
+      ],
+      "end": 21,
+      "kind": "let",
+      "start": 0,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "end": 21,
+  "start": 0,
+  "type": "Program",
+}
+`;

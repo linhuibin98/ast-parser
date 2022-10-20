@@ -12,7 +12,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@linhuibin/eslint-config": "^0.0.4",
     "esbuild": "^0.15.11",
     "vitest": "^0.24.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@linhuibin/eslint-config"
+    ]
   }
 }
