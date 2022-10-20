@@ -46,6 +46,8 @@ export enum TokenType {
   StringLiteral = "StringLiteral",
   // 运算符 + - * /
   Operator = 'Operator',
+  // return
+  Return = 'Return'
 }
 
 export interface Token {
@@ -174,7 +176,15 @@ const TOKENS_GENERATOR: Record<string, (...args: any[]) => Token> = {
       start,
       end: start + value.length,
     };
-  }
+  },
+  return(start: number) {
+    return {
+      type: TokenType.Return,
+      value: "return",
+      start,
+      end: start + 6,
+    };
+  },
 };
 
 // 单字符
