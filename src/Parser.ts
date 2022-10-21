@@ -283,7 +283,9 @@ export class Parser {
   }
 
   private _parseVariableDeclaration(): VariableDeclaration {
+    // 获取语句开始位置
     const { start } = this._getCurrentToken()
+    // 拿到 let / var / const
     const kind = this._getCurrentToken().value
     this._goNext([TokenType.Let, TokenType.Var, TokenType.Const])
     const declarations = []
@@ -310,9 +312,13 @@ export class Parser {
           ])
         )
           init = this._parseLiteral()
-
         else
           init = this._parseExpression()
+
+        if (this._checkCurrentTokenType(TokenType.Operator)) {
+          // 解析 a + b
+          init = this.__parseBinaryOperatorExpression(init)
+        }
       }
       const declarator: VariableDeclarator = {
         type: NodeType.VariableDeclarator,
@@ -330,7 +336,7 @@ export class Parser {
       kind: kind as VariableKind,
       declarations,
       start,
-      end: this._getPreviousToken().end,
+      end: this._getEnd(this._getPreviousToken().end),
     }
     this._skipSemicolon()
     return node
@@ -510,7 +516,7 @@ export class Parser {
 
     const literal: Literal = {
       type: NodeType.Literal,
-      value: token.value!,
+      value,
       start: token.start,
       end: token.end,
       raw: token.raw!,
@@ -602,5 +608,13 @@ export class Parser {
 
     else
       return false
+  }
+
+  private _getEnd(end: number) {
+    const nextToken = this._getCurrentToken()
+    if (nextToken && nextToken.type === TokenType.Semicolon)
+      end += 1
+
+    return end
   }
 }

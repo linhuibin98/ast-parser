@@ -41,7 +41,7 @@ export interface Program extends Node {
 
 export interface Literal extends Node {
   type: NodeType.Literal
-  value: string
+  value: string | number
   raw: string
 }
 
