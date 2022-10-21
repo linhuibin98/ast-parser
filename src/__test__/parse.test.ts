@@ -4,7 +4,6 @@ import type {
   Program,
 } from '../node-types'
 import {
-  ExportDeclaration,
   NodeType,
 } from '../node-types'
 import { parse } from '../index'

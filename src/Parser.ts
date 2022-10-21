@@ -82,8 +82,7 @@ export class Parser {
       ])
     )
       return this._parseVariableDeclaration()
-
-    console.log(this._getCurrentToken())
+    // console.log(this._getCurrentToken())
     throw new Error('Unexpected token')
   }
 
